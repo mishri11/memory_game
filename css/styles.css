@@ -1,0 +1,32 @@
+body {
+  font-family: 'Bungee', cursive;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+table {
+  background-color: blue;
+  border-spacing: 20px;
+}
+
+table, td {
+  border: 5px solid black;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.closed {
+  font-size: 0;
+  background-color: cyan;
+}
+
+td {
+  width: 75px;
+  height: 75px;
+  background-color: yellow;
+  font-size: 200%;
+}
