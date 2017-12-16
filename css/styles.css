@@ -1,16 +1,18 @@
 body {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 20px;
   font-family: 'Bungee', cursive;
   text-align: center;
+}
+
+.container {
+  width: 80%;
+  margin: 3% auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.container {
-  margin: 20px auto;
+.box {
+  margin: 3% auto;
 }
 
 table {
@@ -39,4 +41,26 @@ td {
 .stars {
   font-size: 150%;
   color: orange;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 3%;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modalContent {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+}
+
+#winModal {
+  display: none;
 }

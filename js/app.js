@@ -59,10 +59,16 @@
       openArray.push($(e.target));
       openArray = newCardAdded(openArray);
       if (matches===8) {
-        let winString = `<div class="container"><h1>Congrats! You won in ${moves} moves!</h1></div>`;
-        $('body').html(winString);
+        // Display congrats modal
+        displayWinModal(moves);
       }
     });
+
+    function displayWinModal(moves) {
+      $winModal = $('#winModal')
+      $('.modalContent').prepend(`<p>Congratulations! You won in ${moves} moves!</p>`);
+      $winModal.css('display', 'block');
+    }
 
     // Update star rating based on number of moves
     function updateStars(moves) {
