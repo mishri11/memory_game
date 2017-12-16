@@ -1,11 +1,16 @@
 body {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
   font-family: 'Bungee', cursive;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+  margin: 20px auto;
 }
 
 table {
@@ -28,7 +33,7 @@ td {
   width: 75px;
   height: 75px;
   background-color: yellow;
-  font-size: 200%;
+  font-size: 150%;
 }
 
 .stars {
