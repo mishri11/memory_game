@@ -128,7 +128,7 @@ function updateStars(moves) {
   let $starRating = $('#starRating');
   if (moves>=35 && moves<=45) { // if more than 35 moves, downgrade to 2 star rating
     $starRating.html('Star Rating: <span class="stars">&#9733; &#9733;</span>');
-  } else if (moves>=45) { // if more than 45 moves, downgrade to 1 star rating
+  } else if (moves>45) { // if more than 45 moves, downgrade to 1 star rating
     $starRating.html('Star Rating: <span class="stars">&#9733;</span>');
   }
 }
