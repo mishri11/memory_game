@@ -37,7 +37,6 @@ playTable.on('click', 'td', function(e) {
   $(this).toggleClass('closed');
   openArray.push($(e.target));
   openArray = newCardAdded(openArray);
-  console.log(`${moves} Moves, ${matches} Matches`);
   if (matches===8) {
     // Display congrats modal
     displayWinModal(moves, elapsedMins, elapsedSecs);
@@ -114,7 +113,7 @@ function shuffle(array) {
 
 function displayWinModal(moves, elapsedMins, elapsedSecs) {
   $winModal = $('#winModal')
-  $('.modalContent').prepend(`<p>You won!<hr>It took you...<br> ${moves} moves<br>${elapsedMins} Minutes, ${elapsedSecs} Seconds</p>`);
+  $('.modalContent').prepend(`<p>You won!<hr>It took you...<br> ${moves} moves<br>${elapsedMins} Minutes, ${elapsedSecs} Seconds<hr>Your ${$('#starRating').html()}</p>`);
   $winModal.css('display', 'block');
 }
 
