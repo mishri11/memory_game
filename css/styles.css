@@ -49,14 +49,15 @@ td {
   z-index: 1;
   left: 3%;
   top: 0;
-  width: 80%;
+  margin: 0 auto;
+  width: 85%;
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.4);
 }
 
 .modalContent {
-  background-color: #fefefe;
+  background-color: white;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
