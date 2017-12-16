@@ -52,7 +52,7 @@ td {
   margin: 0 auto;
   width: 85%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: rgba(0,0,0,0.4);
 }
 

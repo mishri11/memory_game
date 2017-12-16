@@ -4,12 +4,17 @@ const cards = ['&spades;', '&spades;', '&clubs;', '&clubs;', '&hearts;', '&heart
 /* Keep track of:
   Moves - number of clicks/card flips
   Matches - number of matched pairs so far
+  Elapsed time - time since you first click on the board
   OpenArray - array containing cards that are currently open on the board
 */
 let moves = 0;
 let matches = 0;
+let elapsedMins = 0;
+let elapsedSecs = 0;
+let timerVar;
 let openArray = [];
 let playTable = $('table');
+
 
 // Shuffle and display the cards: loop through each card and create its HTML, and add the HTML to the page
 drawBoard(shuffle(cards));
@@ -35,9 +40,12 @@ playTable.on('click', 'td', function(e) {
   console.log(`${moves} Moves, ${matches} Matches`);
   if (matches===8) {
     // Display congrats modal
-    displayWinModal(moves);
+    displayWinModal(moves, elapsedMins, elapsedSecs);
+    clearInterval(timerVar);
   }
 });
+
+
 
 // Reset the game when you click on Start Over or Play Again buttons
 $('.resetGame').click(function() {
@@ -50,6 +58,10 @@ function resetGame() {
   $('p').remove();
   moves = 0;
   matches = 0;
+  elapsedMins = 0;
+  elapsedSecs = 0;
+  updateTime(elapsedMins, elapsedSecs);
+  clearInterval(timerVar);
   openArray = [];
   updateMoves(moves);
   updateStars(moves);
@@ -69,6 +81,19 @@ function drawBoard(cards) {
     tableHTML += '</tr>';
   }
   playTable.html(tableHTML);
+
+  // Event listener for just the first click event - to start the timer
+  playTable.one('click', 'td', function(e) {
+    timerVar = setInterval(function() {
+      elapsedSecs++; // increment elapsedSecs by one second
+      if (elapsedSecs===60) {
+        elapsedMins++;
+        elapsedSecs = 0;
+      }
+      // update display of time
+      updateTime(elapsedMins, elapsedSecs);
+    }, 1000);
+  })
 }
 
 //Be able to shuffle that list
@@ -87,9 +112,9 @@ function shuffle(array) {
     return array;
 }
 
-function displayWinModal(moves) {
+function displayWinModal(moves, elapsedMins, elapsedSecs) {
   $winModal = $('#winModal')
-  $('.modalContent').prepend(`<p>Congratulations! You won in ${moves} moves!</p>`);
+  $('.modalContent').prepend(`<p>You won!<hr>It took you...<br> ${moves} moves<br>${elapsedMins} Minutes, ${elapsedSecs} Seconds</p>`);
   $winModal.css('display', 'block');
 }
 
@@ -106,6 +131,22 @@ function updateStars(moves) {
     $starRating.html('Star Rating: <span class="stars">&#9733; &#9733;</span>');
   } else if (moves>=45) { // if more than 45 moves, downgrade to 1 star rating
     $starRating.html('Star Rating: <span class="stars">&#9733;</span>');
+  }
+}
+
+let $mins = $('.minutes');
+let $secs = $('.seconds');
+// Update timer display
+function updateTime(elapsedMins, elapsedSecs) {
+  if (elapsedMins<10) {
+    $mins.text('0' + elapsedMins);
+  } else {
+    $mins.text(elapsedMins);
+  }
+  if (elapsedSecs<10) {
+    $secs.text('0' + elapsedSecs);
+  } else {
+    $secs.text(elapsedSecs);
   }
 }
 
