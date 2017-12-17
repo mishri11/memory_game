@@ -16,7 +16,8 @@ body {
 }
 
 table {
-  background-color: blue;
+  /*background-color: blue;*/
+  background: linear-gradient(blue, purple);
   border-spacing: 15px;
 }
 
