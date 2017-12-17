@@ -5,8 +5,8 @@
 
 * [Introduction](#instructions)
 * [Setup](#setup)
-* [Rules of the Game](#rules of the Game)
-* [Player Statistics](#player Statistics)
+* [Rules](#rules)
+* [Statistics](#statistics)
 * [Contributing](#contributing)
 
 ## Description
@@ -22,7 +22,7 @@ To play the game, download this repository as a .zip file. Then, unzip it and op
 
 Start playing by clicking on any of the light blue tiles! If at any point you want to restart the game, click on "Start Over."
 
-## Rules of the Game
+## Rules
 
 There are 16 tiles on the board, consisting of 8 pairs of tiles. A pair of tiles will have the same symbol.
 
@@ -32,7 +32,7 @@ Click on two tiles at a time:
 
 Your objective is to match all 8 pairs in as few moves and as quickly as you can!
 
-## Player Statistics
+## Statistics
 
 The game keeps track of and displays the number of moves you have made (which is the number of tiles you have flipped over), how long it takes you to find all the matching pairs, and a star rating which is determined as follows:
 
