@@ -31,12 +31,14 @@ drawBoard(shuffle(cards));
       5. If matches===8 then display win modal
   */
 playTable.on('click', 'td', function(e) {
-  moves++;
-  updateMoves(moves);
-  updateStars(moves);
-  $(this).toggleClass('closed');
-  openArray.push($(e.target));
-  openArray = newCardAdded(openArray);
+  if ($(this).hasClass('closed')) {
+    moves++;
+    updateMoves(moves);
+    updateStars(moves);
+    $(this).toggleClass('closed');
+    openArray.push($(e.target));
+    openArray = newCardAdded(openArray);
+  }
   if (matches===8) {
     // Display congrats modal
     displayWinModal(moves, elapsedMins, elapsedSecs);
