@@ -5,8 +5,8 @@
 
 * [Introduction](#instructions)
 * [Setup](#setup)
-* [Rules of the Game](#Rules of the Game)
-* [Player Statistics](#Player Statistics)
+* [Rules of the Game](#rules of the Game)
+* [Player Statistics](#player Statistics)
 * [Contributing](#contributing)
 
 ## Description
